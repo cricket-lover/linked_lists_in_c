@@ -21,25 +21,20 @@ void insert_node(List *list, int value)
   {
     list->last->next = new_node;
   }
-  list->count++;
   list->last = new_node;
 }
 
 int search_node(List *list, int value)
 {
   Node *p_walk = list->first;
-  int count = 0;
+  int position = 0;
 
-  while (p_walk != NULL)
+  while (p_walk != NULL && p_walk->value != value)
   {
-    if (p_walk->value == value)
-    {
-      break;
-    }
     p_walk = p_walk->next;
-    count++;
+    position++;
   }
-  return p_walk == NULL ? -1 : count;
+  return p_walk == NULL ? POSITION_NOT_FOUND : position;
 }
 
 List *create_list()

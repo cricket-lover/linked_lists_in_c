@@ -11,8 +11,10 @@ typedef struct list
 {
   Node *first;
   Node *last;
-  int count;
 } List;
+
+#define END_OF_INPUT -99
+#define POSITION_NOT_FOUND -1
 
 List *create_list();
 void insert_node(List *list, int value);

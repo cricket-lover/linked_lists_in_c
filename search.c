@@ -3,7 +3,7 @@
 
 void display_position(int value, int position)
 {
-  if (position == -1)
+  if (position == POSITION_NOT_FOUND)
   {
     printf("%d is not present in the list\n\n", value);
   }
@@ -17,9 +17,10 @@ int main()
 {
   List *list = create_list();
   int value_to_insert, value_to_search, position;
+
   printf("Please enter a number\n");
   scanf("%d", &value_to_insert);
-  while (value_to_insert != -99)
+  while (value_to_insert != END_OF_INPUT)
   {
     insert_node(list, value_to_insert);
     printf("Please enter a number\n");
@@ -29,7 +30,7 @@ int main()
 
   printf("Please enter a number\n");
   scanf("%d", &value_to_search);
-  while (value_to_search != -99)
+  while (value_to_search != END_OF_INPUT)
   {
     position = search_node(list, value_to_search);
     display_position(value_to_search, position);
