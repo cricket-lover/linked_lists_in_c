@@ -18,7 +18,8 @@ typedef struct list
 
 List *create_list();
 void insert_node(List *list, int value);
-Node *create_node(int value);
+Node *create_node(int value, Node *);
 int search_node(List *list, int value);
+void add_to_start(List *list, int value);
 
 #endif

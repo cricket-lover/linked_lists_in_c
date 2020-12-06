@@ -2,17 +2,23 @@
 #include <stdlib.h>
 #include "list.h"
 
-Node *create_node(int value)
+Node *create_node(int value, Node *next_reference)
 {
   Node *new_node = malloc(sizeof(Node));
   new_node->value = value;
-  new_node->next = NULL;
+  new_node->next = next_reference;
   return new_node;
+}
+
+void add_to_start(List *list, int value)
+{
+  Node *new_node = create_node(value, list->first);
+  list->first = new_node;
 }
 
 void insert_node(List *list, int value)
 {
-  Node *new_node = create_node(value);
+  Node *new_node = create_node(value, NULL);
   if (list->first == NULL)
   {
     list->first = new_node;
